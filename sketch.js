@@ -19,6 +19,7 @@ var ShimmerbuttonCounter = 0;
 var GuitarbuttonCounter = 0;
 var melody, clock, drums,vibslap, riff, violin, chimes, woodblock, baby, guitar, beehorn;
 
+// Test
 
 
 var clockcheck = 0;
