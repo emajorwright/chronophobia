@@ -19,7 +19,6 @@ var ShimmerbuttonCounter = 0;
 var GuitarbuttonCounter = 0;
 var melody, clock, drums,vibslap, riff, violin, chimes, woodblock, baby, guitar, beehorn;
 
-// Test
 
 
 var clockcheck = 0;
@@ -36,7 +35,7 @@ function setup(){
  
   img = loadImage('display/chronophobia.JPG');
  // soundFormats('wav');
-  melody = loadSound('sounds/youth melody.mp3');
+  melody = loadSound('sounds/youth melody4.mp3');
   baby = loadSound('sounds/baby talk.mp3');
   guitar = loadSound('sounds/guitar.mp3');
   beehorn = loadSound('sounds/horn bee.mp3');
@@ -68,7 +67,20 @@ function setup(){
   ErectX = 520;
   ErectY = 496;
   
+  printLetterT1 = false;
+  printLetterI = false;
+  printLetterM = false;
+  printLetterE = false;
+  printLetterO = false;
+  printLetterU = false;
+  printLetterT2 = false;
+  
+  haswon = false;
 
+  //hint 
+hint = createA('https://www.dropbox.com/s/lunlwqigv57gxmf/youth%20%28demo%29.wav?dl=0', 'hint');
+hint.position(650, 356);
+hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
   
   
   
@@ -99,9 +111,77 @@ function setup(){
   fill(0);
   text(mouseX+"//"+mouseY,mouseX,mouseY);*/
     
-
+    if (printLetterT1) {
+    push();
+        fill(255);
+        textSize(32);
+        text('T', 38, 173);
+        pop();
+      }
+    
+     if (printLetterI) {
+    push();
+        fill(255);
+        textSize(32);
+        text('I', 38, 200);
+        pop();
+      }
+    
+     if (printLetterM) {
+    push();
+        fill(255);
+        textSize(32);
+        text('M', 38, 246);
+        pop();
+      }
+    
+     if (printLetterE) {
+    push();
+        fill(255);
+        textSize(32);
+        text('E', 38, 289);
+        pop();
+      }
+    
+     if (printLetterO) {
+    push();
+        fill(255);
+        textSize(32);
+        text('O', 38, 327);
+        pop();
+      }
+    
+     if (printLetterU) {
+    push();
+        fill(255);
+        textSize(32);
+        text('U', 38, 378);
+        pop();
+      }
+    
+     if (printLetterT2) {
+    push();
+        fill(255);
+        textSize(32);
+        text('T', 38, 412);
+        pop();
+      }
+    
+     
+    if(haswon){
+      fill(255);
+      textSize(32);
+      text('T', 38, 173);
+      text('I', 38, 200);
+      text('M', 38, 246);
+      text('E', 38, 289);
+      text('O', 38, 327);
+      text('U', 38, 378);
+      text('T', 38, 412);
+    }
   
   }
+
 
 
 function mouseReleased() {
@@ -124,7 +204,12 @@ function mouseReleased() {
     
     if(clockcheck == 1 && melodycheck == 2 && horncheck == 3 && drumscheck == 4){
     set(shimmercheck = 5);
-    print ("O");}
+    print ("O");
+    
+    printLetterO = true;
+        setTimeout(() => {
+          printLetterO = false;
+        }, 1000);}
   
     
     else{
@@ -152,8 +237,17 @@ function mouseReleased() {
         
         set(clockcheck = 1);
         print("T")
+        
+        printLetterT1 = true;
+        setTimeout(() => {
+          printLetterT1 = false;
+        }, 1000);
       }
-      }
+    
+    
+  }
+  
+  
   
 
   
@@ -183,9 +277,17 @@ if(mouseX > MrectX - 180/2 && mouseX < MrectX + 180/2 && mouseY > MrectY - 165/2
     set(horncheck = 3);
     print ("M");
     
-      if(melody.isPlaying()){
-        melody.stop();
-      }
+    
+    printLetterM = true;
+        setTimeout(() => {
+          printLetterM = false;
+        }, 1000);
+    
+   // if(melody.isPlaying()){
+      //  melody.stop();
+        
+        
+    //  }
     }
   else{
     //set(horncheck = 407)
@@ -209,7 +311,12 @@ if(mouseX > 360 && mouseX < 400 && mouseY > 224 && mouseY < 400){
   if(clockcheck == 1 && horncheck == 0 && drumscheck == 0 && shimmercheck == 0 && guitarcheck == 0 && riffcheck == 0){
         
         set(melodycheck = 2);
-        print("I")} 
+        print("I")
+  
+  printLetterI = true;
+        setTimeout(() => {
+          printLetterI = false;
+        }, 1000);} 
   
   else {
     //set(melodycheck = 404)
@@ -230,6 +337,8 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
       beehorn.loop();
       clock.loop();
       baby.loop();
+     
+    haswon = true;
       
     }
   
@@ -244,9 +353,45 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
     set(shimmercheck = 0);
     set(guitarcheck = 0);
     set(riffcheck = 0);
+    
+    if (violin.isPlaying()){
+            violin.stop();
+           }
+    if (clock.isPlaying()){
+            clock.stop();
+           }
+    if (melody.isPlaying()){
+            melody.stop();
+           }
+    
+    if (beehorn.isPlaying()){
+            beehorn.stop();
+           }
+    
+    if (guitar.isPlaying()){
+            guitar.stop();
+           }
+    
+    if (drums.isPlaying()){
+            drums.stop();
+           }
+    
+    if (riff.isPlaying()){
+            riff.stop();
+           }
+      
   }
 
   
+  
+  
+  
+  
+//hint button 
+  
+  
+  
+
 }
   if(mouseX > NrectX - 150/2 && mouseX < NrectX + 150/2 && mouseY > NrectY - 165/2 && mouseY < NrectY + 165/2  ){
        print("violin");
@@ -285,7 +430,12 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
       
     if(clockcheck == 1 && melodycheck == 2 && horncheck == 3 && drumscheck == 4 && shimmercheck == 5){
     set(guitarcheck = 6);
-    print ("U");}
+    print ("U");
+    
+    printLetterU = true;
+        setTimeout(() => {
+          printLetterU = false;
+        }, 1000);}
     
     else{
     //  set(guitarcheck = 919);
@@ -317,7 +467,12 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
     if(guitar.isPlaying()){
         guitar.stop();}
       if(beehorn.isPlaying()){
-        beehorn.stop();}
+        beehorn.stop();
+      
+      printLetterT2 = true;
+        setTimeout(() => {
+          printLetterT2 = false;
+        }, 1000);}
     
     else{
      // set(riffcheck = 101);
@@ -344,7 +499,12 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
     
     if(clockcheck == 1 && melodycheck == 2 && horncheck == 3){
     set(drumscheck = 4);
-    print ("E");}
+    print ("E");
+    
+    printLetterE = true;
+        setTimeout(() => {
+          printLetterE = false;
+        }, 1000);}
     
     else{
      // set(drumscheck = 808);
