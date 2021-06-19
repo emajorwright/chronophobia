@@ -105,11 +105,11 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
     
     
 // mouse coordinates, used for height & width parameters
-  /*noStroke();
+  noStroke();
   fill(255,0,0);
   ellipse(mouseX,mouseY,40,40);
   fill(0);
-  text(mouseX+"//"+mouseY,mouseX,mouseY);*/
+  text(mouseX+"//"+mouseY,mouseX,mouseY);
     
     if (printLetterT1) {
     push();
@@ -213,7 +213,7 @@ function mouseReleased() {
   
     
     else{
-   //   set(shimmercheck = 783);
+    set(shimmercheck = 783);
     //  print (shimmercheck);
         
       }}
@@ -290,7 +290,7 @@ if(mouseX > MrectX - 180/2 && mouseX < MrectX + 180/2 && mouseY > MrectY - 165/2
     //  }
     }
   else{
-    //set(horncheck = 407)
+    set(horncheck = 407)
   }
       }
   
@@ -319,7 +319,7 @@ if(mouseX > 360 && mouseX < 400 && mouseY > 224 && mouseY < 400){
         }, 1000);} 
   
   else {
-    //set(melodycheck = 404)
+    set(melodycheck = 404)
    // print(melodycheck)
   }
 }
@@ -387,7 +387,7 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
   
   
   
-//hint button 
+ 
   
   
   
@@ -438,7 +438,7 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
         }, 1000);}
     
     else{
-    //  set(guitarcheck = 919);
+    set(guitarcheck = 919);
      // print (guitarcheck);
         
       }}
@@ -475,7 +475,7 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
         }, 1000);}
     
     else{
-     // set(riffcheck = 101);
+      set(riffcheck = 101);
      // print (riffcheck);
     
        
@@ -507,7 +507,7 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
         }, 1000);}
     
     else{
-     // set(drumscheck = 808);
+     set(drumscheck = 808);
      // print (drumscheck);
     }
   }
@@ -551,8 +551,6 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
     
       if (clock.isPlaying() && melody.isPlaying() && Drums.isPlaying )  */
    
-  
-
 
 
 
