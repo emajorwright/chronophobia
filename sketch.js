@@ -1,3 +1,12 @@
+/*Chronophobia.prjct
+Author:     Eli Major-Wright
+Email:     majorwrightme@g.cofc.edu
+MTI695
+# FinalD
+# Due Date:   February 12, 2018
+#
+#
+#*/
 
 
 
@@ -28,7 +37,17 @@ var drumscheck = 0;
 var shimmercheck = 0;
 var guitarcheck = 0;
 var riffcheck = 0;
+var gamestart;
+var drawwin;
+var wrong;
 
+
+let myFont;
+
+
+function preload() {
+  myFont = loadFont('fonts/digital dark system.ttf');
+}
 
 function setup(){
   createCanvas(700, 700); 
@@ -47,6 +66,8 @@ function setup(){
   chimes = loadSound('sounds/youth chimes.mp3'); // DANNY: and here
   woodblock = loadSound('sounds/woodblock.mp3'); // DANNY: here too :)
   
+  
+gamestart = false;
   rectMode(CENTER);  
   GrectX = 194;  
   GrectY = 156;
@@ -67,6 +88,8 @@ function setup(){
   ErectX = 520;
   ErectY = 496;
   
+  
+  
   printLetterT1 = false;
   printLetterI = false;
   printLetterM = false;
@@ -78,7 +101,7 @@ function setup(){
   haswon = false;
 
   //hint 
-hint = createA('https://www.dropbox.com/s/lunlwqigv57gxmf/youth%20%28demo%29.wav?dl=0', 'hint');
+hint = createA('https://www.dropbox.com/s/lunlwqigv57gxmf/youth%20%28demo%29.wav?dl=0', 'music');
 hint.position(650, 356);
 hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
   
@@ -91,6 +114,21 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
   print("a hint: all of the loops are 4 bars")
 }
   function draw(){
+    
+     if (!gamestart) {
+    background(255);
+
+    textSize(32);
+    textFont(myFont);
+    fill(50);
+    text('welcome to the chronophobia project.', 10, 310);
+       
+      text('come in, play around, waste some time with us.', 10, 370);
+
+       text('use the music...see what you find.', 10, 430);
+  } 
+
+    else{
     background(img);
     fill(0,0,0);  
    /* rect(GrectX, GrectY, rectSizeTop, rectSizeTop);
@@ -105,32 +143,32 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
     
     
 // mouse coordinates, used for height & width parameters
-  noStroke();
+  /*noStroke();
   fill(255,0,0);
   ellipse(mouseX,mouseY,40,40);
   fill(0);
-  text(mouseX+"//"+mouseY,mouseX,mouseY);
+  text(mouseX+"//"+mouseY,mouseX,mouseY);*/
     
     if (printLetterT1) {
     push();
         fill(255);
-        textSize(32);
-        text('T', 38, 173);
+        textSize(69);
+        text('T', 38, 154);
         pop();
       }
     
      if (printLetterI) {
     push();
         fill(255);
-        textSize(32);
-        text('I', 38, 200);
+        textSize(69);
+        text('I', 43, 200);
         pop();
       }
     
      if (printLetterM) {
     push();
         fill(255);
-        textSize(32);
+        textSize(69);
         text('M', 38, 246);
         pop();
       }
@@ -138,7 +176,7 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
      if (printLetterE) {
     push();
         fill(255);
-        textSize(32);
+        textSize(69);
         text('E', 38, 289);
         pop();
       }
@@ -146,7 +184,7 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
      if (printLetterO) {
     push();
         fill(255);
-        textSize(32);
+        textSize(69);
         text('O', 38, 327);
         pop();
       }
@@ -154,7 +192,7 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
      if (printLetterU) {
     push();
         fill(255);
-        textSize(32);
+        textSize(69);
         text('U', 38, 378);
         pop();
       }
@@ -162,29 +200,57 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
      if (printLetterT2) {
     push();
         fill(255);
-        textSize(32);
-        text('T', 38, 412);
+        textSize(69);
+        text('T', 38, 430);
         pop();
       }
     
      
     if(haswon){
       fill(255);
-      textSize(32);
-      text('T', 38, 173);
-      text('I', 38, 200);
+      textSize(69);
+      text('T', 38, 154);
+      text('I', 43, 200);
       text('M', 38, 246);
       text('E', 38, 289);
       text('O', 38, 327);
       text('U', 38, 378);
-      text('T', 38, 412);
+      text('T', 38, 430);
+      
+      
+    
     }
+      
+    if(drawwin){
+      push();
+      textSize(32);
+      fill(255);
+      text("wow you figured it out..lucky duck", 300,692 );
+    }
+      
+      if(wrong){
+        
+        push();
+      textSize(32);
+      fill(255);
+      text("having fun?", 250, 692);
+        
+      }
   
+  }
   }
 
 
 
 function mouseReleased() {
+  
+  
+  
+  if(!gamestart){
+  
+  gamestart = true}
+
+  else{
       if(mouseX > GrectX - rectSizeTop/2 && mouseX < GrectX + rectSizeTop/2 && mouseY > GrectY - rectSizeTop/2 && mouseY < GrectY + rectSizeTop/2  ){
      
     BabybuttonCounter++;
@@ -329,7 +395,7 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
   
    if(clockcheck == 1 && melodycheck == 2 && horncheck == 3 && drumscheck == 4 && shimmercheck == 5 && guitarcheck == 6 && riffcheck == 7){
       
-      print("wow you figured it out..lucky duck");
+      drawwin = true;
       melody.stop();
       drums.stop();
       guitar.stop();
@@ -343,6 +409,7 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
     }
   
   else {
+      wrong = true;
       print("having fun?")
       vibslap.play();
     
@@ -511,8 +578,7 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
      // print (drumscheck);
     }
   }
-}
-    
+}}
     
     
      /*  EndbuttonCounter8++;
@@ -551,6 +617,8 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
     
       if (clock.isPlaying() && melody.isPlaying() && Drums.isPlaying )  */
    
+  
+
 
 
 
