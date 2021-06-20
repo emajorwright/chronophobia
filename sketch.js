@@ -51,9 +51,10 @@ function preload() {
 
 function setup(){
   createCanvas(700, 700); 
- 
   img = loadImage('display/chronophobia.JPG');
+
  // soundFormats('wav');
+  
   melody = loadSound('sounds/youth melody4.mp3');
   baby = loadSound('sounds/baby talk.mp3');
   guitar = loadSound('sounds/guitar.mp3');
@@ -117,7 +118,7 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
     
      if (!gamestart) {
     background(255);
-
+   // image(startimg, 250,250);
     textSize(32);
     textFont(myFont);
     fill(50);
@@ -233,7 +234,7 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
         push();
       textSize(32);
       fill(255);
-      text("having fun?", 250, 692);
+      text("having fun?", 100, 692);
         
       }
   
