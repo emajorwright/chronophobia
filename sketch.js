@@ -1,11 +1,6 @@
-/*Chronophobia.prjct
-Author:     Eli Major-Wright
-Email:     majorwrightme@g.cofc.edu
+/*Chronophobia.prjct - Game 1
+Author:     Eli Major-Wright, Danny Greenburg, Marta Verde
 MTI695
-# FinalD
-# Due Date:   February 12, 2018
-#
-#
 #*/
 
 
@@ -67,6 +62,7 @@ function setup(){
   chimes = loadSound('sounds/youth chimes.mp3'); // DANNY: and here
   woodblock = loadSound('sounds/woodblock.mp3'); // DANNY: here too :)
   
+  dove = loadSound('sounds/morning_dove.mp3');
   
 gamestart = false;
   rectMode(CENTER);  
@@ -226,7 +222,7 @@ hint.style('font-family', ["Lucida Console", "Courier New", 'monospace']);
       push();
       textSize(32);
       fill(255);
-      text("wow you figured it out..lucky duck", 300,692 );
+      text("wow you figured it out..lucky dove", 300,692 );
     }
       
       if(wrong){
@@ -401,9 +397,11 @@ if(mouseX > 593 && mouseX < 623 && mouseY > 100 & mouseY < 144){
       drums.stop();
       guitar.stop();
       riff.stop();
+      dove.play();
       beehorn.loop();
       clock.loop();
       baby.loop();
+     
      
     haswon = true;
       
